@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Steam Profile Text Editor | Format Your Steam Bio, Descriptions and Articles</title>
+    <meta name="description" content="Easily format your Steam profile text, including bio, articles, and more.  Preview your changes before updating your profile.">
+
+    <link href="bootstrap.css" rel="stylesheet">
+    <script src="bootstrap.js" async></script>
+    <link href="styles.css" rel="stylesheet">
+    <script src="main.js" async></script>
+</head>
+<body>
+
+<main class="container py-5">
+    <h1 class="text-center mb-4">Steam Text Editor</h1>
+    <p class="text-center">Format your Steam profile text with ease. Enter your text below to see a formatted preview.</p>
+
+    <form>
+        <div class="w-100 m-3 d-flex justify-content-center flex-wrap">
+            <button class="btn btn-primary m-1" id="control-btn-i">I</button>
+            <button class="btn btn-primary m-1" id="control-btn-u">U</button>
+            <button class="btn btn-primary m-1" id="control-btn-b">B</button>
+            <button class="btn btn-primary m-1" id="control-btn-strike">Strike</button>
+            <button class="btn btn-primary m-1" id="control-btn-spoiler">Spoiler</button>
+            <button class="btn btn-primary m-1" id="control-btn-link">Link</button>
+            <button class="btn btn-primary m-1" id="control-btn-separator">Separator</button>
+            <button class="btn btn-primary m-1" id="control-btn-list">List</button>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3 mb-md-0 position-relative">
+                <label for="source" class="form-label">Source Text</label>
+                <textarea id="source"
+                          class="form-control form-control-lg"
+                          placeholder="Enter your Steam text..."
+                          rows="10"
+                          autofocus="autofocus"></textarea>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Formatted Text Preview</label>
+                <div id="processed"
+                     class="steam__board form-control form-control-lg"
+                     contenteditable="false"
+                     aria-readonly="true">
+                </div>
+            </div>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <p class="text-center">
+        We are using
+        <a class="link" href="https://steamcommunity.com/comment/Guide/formattinghelp">this</a>
+        text formatting guide
+    </p>
+    <p class="text-center">
+        If you want something or something works wrong, add an issue
+        <a class="link" href="https://github.com/daug32/steam-text-editor/issues">here</a>
+    </p>
+</footer>
+
+</body>
+</html>
