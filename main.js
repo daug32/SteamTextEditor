@@ -117,7 +117,7 @@ function buildTextFormatter() {
 
     // apply parse links
     formatters.push(text => text.replaceAll(
-        /(\S+:\/\/\S+)/g,
+        /(\w+:\/\/\S+)/g,
         `<a class="steam__link" href="" target="_blank" rel="noopener">$1</a>`));
 
     // apply html line breaks
