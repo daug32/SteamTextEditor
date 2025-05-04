@@ -157,42 +157,61 @@ function setStyleToSelectedText(command) {
 
     if (command === 'h1') {
         replacementText = `[h1]${selectedText.trim()}[/h1]`;
-        selectionStart = selectionEnd = start + '[h1]'.length;
+        selectionStart = selectionEnd = !!selectedText
+            ? start + replacementText.length
+            : start + '[h1]'.length;
     } else if (command === 'h2') {
         replacementText = `[h2]${selectedText.trim()}[/h2]`;
-        selectionStart = selectionEnd = start + '[h2]'.length;
+        selectionStart = selectionEnd = !!selectedText
+            ? start + replacementText.length
+            : start + '[h2]'.length;
     } else if (command === 'h3') {
         replacementText = `[h3]${selectedText.trim()}[/h3]`;
-        selectionStart = selectionEnd = start + '[h3]'.length;
+        selectionStart = selectionEnd = !!selectedText
+            ? start + replacementText.length
+            : start + '[h3]'.length;
     } else if (command === 'b') {
         replacementText = `[b]${selectedText}[/b]`;
-        selectionStart = start;
-        selectionEnd = start + replacementText.length;
+        selectionStart = selectionEnd = !!selectedText
+            ? start + replacementText.length
+            : start + '[b]'.length;
     } else if (command === 'i') {
         replacementText = `[i]${selectedText}[/i]`;
-        selectionStart = start;
-        selectionEnd = start + replacementText.length;
+        selectionStart = selectionEnd = !!selectedText
+            ? start + replacementText.length
+            : start + '[i]'.length;
     } else if (command === 'u') {
         replacementText = `[u]${selectedText}[/u]`;
-        selectionStart = start;
-        selectionEnd = start + replacementText.length;
+        selectionStart = selectionEnd = !!selectedText
+            ? start + replacementText.length
+            : start + '[u]'.length;
     } else if (command === 'spoiler') {
         replacementText = `[spoiler]${selectedText}[/spoiler]`;
-        selectionStart = start;
-        selectionEnd = start + replacementText.length;
+        selectionStart = selectionEnd = !!selectedText
+            ? start + replacementText.length
+            : start + '[spoiler]'.length;
     } else if (command === 'link') {
         replacementText = `[url=]${selectedText}[/url]`
         selectionEnd = selectionStart = start + '[url='.length;
     } else if (command === 'strike') {
         replacementText = `[strike]${selectedText}[/strike]`;
-        selectionStart = start;
-        selectionEnd = start + replacementText.length;
+        selectionStart = selectionEnd = start + '[strike]'.length;
     } else if (command === 'separator') {
-        replacementText = !selectedText ? `[hr][/hr]\n` : `${selectedText}\n[hr][/hr]`;
-        selectionStart = sourceAnchor.selectionEnd;
+        if (!sourceAnchor.value) {
+            replacementText = `[hr][/hr]\n`;
+            selectionStart = selectionEnd = start + '[hr][/hr]\n'.length;
+        } else {
+            replacementText = `${selectedText}\n[hr][/hr]\n`;
+            selectionStart = selectionEnd = start + '\n[hr][/hr]\n'.length;
+        }
     } else if (command === 'list') {
-        replacementText = `[list]\n[*]${selectedText}\n[/list]`;
-        selectionStart = selectionEnd = start + `[list]\n[*]${selectedText}`.length;
+        if (!sourceAnchor.value) {
+            replacementText = `[list]\n[*]${selectedText}\n[/list]`;
+            selectionStart = selectionEnd = start + `[list]\n[*]${selectedText}`.length;
+        } else {
+            replacementText = `\n[list]\n[*]${selectedText}\n[/list]`;
+            selectionStart = selectionEnd = start + `\n[list]\n[*]${selectedText}`.length;
+        }
     }
 
     if (!replacementText) {
