@@ -66,14 +66,11 @@ function buildTextFormatter() {
     const formatters = [];
 
     // apply list formatters
-    const listRegex = /\[list\](.*?)\[\/list\]/gs;
-    const itemRegex = /^\s*\[\*\](.+)$/gs;
+    const listRegex = /\[list\](.*?)\[\/list\]( *\n)?/gs;
+    const itemRegex = /\[\*\](.*?)(?=\[\*\]|$)/gs;
 
     formatters.push(text => text.replaceAll(listRegex, (match, content) => {
-        const items = content
-            .split('\n')
-            .map(item => item.replaceAll(itemRegex, '<li>$1</li>'))
-            .join('');
+        const items = replaceAll(itemRegex, '<li>$1</li>')( content );
         return `<ul>${items}</ul>`;
     }));
 
@@ -147,7 +144,6 @@ function setStyleToSelectedText(command) {
     const end = sourceAnchor.selectionEnd;
 
     let selectedText = sourceAnchor.value.substring(start, end);
-    console.log(start, end, selectedText, sourceAnchor.matches(':focus'));
     if ( !selectedText ) {
         selectedText = '';
     }
