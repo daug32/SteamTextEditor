@@ -1,5 +1,5 @@
 # Steam markup editor
-A small preview generator for Steam markup
+A small preview generator for Steam markup.<br/>
 I created it because I am tired of Steam reviews writing process where you need to _publish_ your review before you can see what you've wrote
 
 Features: 
