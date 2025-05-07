@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <title>Steam Profile Text Editor | Format Your Steam Bio, Descriptions and Articles</title>
-    <meta name="description" content="Easily format your Steam profile text, including bio, articles, and more.  Preview your changes before updating your profile.">
+    <title>Steam Text Editor</title>
+    <meta property="og:title" content="Steam Text Editor">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_32x32.png">
     <meta name="google-site-verification" content="o0rsGuZSRvIDC6zFS6XsH85N_CIRj5MbeYtpZ69Jps4" />
+    <meta name="description" content="Easily format your Steam bio, reviews, and more with a real-time preview">
+    <meta property="og:description" content="Easily format your Steam bio, reviews, and more with a real-time preview">
+    <meta name="author" content="daug32">
+    <meta name="language" content="English">
 
-    <link href="bootstrap.css" rel="stylesheet">
-    <script src="bootstrap.js" async></script>
-    <link href="styles.css" rel="stylesheet">
-    <script src="main.js" async></script>
+    <link href="/styles/bootstrap.css" rel="stylesheet">
+    <link href="/styles/styles.css" rel="stylesheet">
+    <script src="/scripts/main.js" async></script>
 </head>
 <body>
 
-<main class="container py-5">
+<header class="container pt-5">
     <h1 class="text-center mb-4">Steam Text Editor</h1>
-    <p class="text-center">Format your Steam profile text with ease. Enter your text below to see a formatted preview.</p>
+    <p class="text-center m-0">Format your Steam profile text with ease. Enter your text below to see a formatted preview.</p>
+</header>
 
+<main class="container pt-3">
     <form>
-        <div class="w-100 m-3 d-flex justify-content-center flex-wrap">
+        <div class="w-100 d-flex justify-content-center flex-wrap">
             <div class="d-flex flex-column justify-content-center">
                 <button class="btn btn-primary m-1" id="control-btn-h1">H1</button>
                 <small class="text-center text-muted m-1">Alt + 1</small>
@@ -90,7 +97,7 @@
     </form>
 </main>
 
-<footer>
+<footer role="contentinfo" class="text-center py-3">
     <p class="text-center">
         We are using
         <a class="link" href="https://steamcommunity.com/comment/Guide/formattinghelp">this</a>
